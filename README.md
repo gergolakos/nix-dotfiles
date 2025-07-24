@@ -25,3 +25,5 @@
 - `overlays/`: Custom Nix overlays for package modifications or additions
 
 Ideas were inspired by: https://github.com/AlexNabokikh/nix-config
+
+cat /run/current-system/sw/bin/bash

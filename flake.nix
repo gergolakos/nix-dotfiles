@@ -47,12 +47,13 @@
   #  };
 
     # Function for nix-darwin system configuration
-    mkDarwinConfiguration = hostname: username:
+    mkDarwinConfiguration = hostname: username: isCorporate:
       darwin.lib.darwinSystem {
         system = "aarch64-darwin"; # Apple Silicon
         specialArgs = {
-          inherit inputs outputs hostname;
+          inherit inputs outputs hostname isCorporate;
           userConfig = users.${username};
+          nixDarwinModules = "${self}/modules/darwin";
         };
         modules = [
           ./hosts/${hostname}
@@ -78,7 +79,7 @@
     # };
 
     darwinConfigurations = {
-      "mac-config" = mkDarwinConfiguration "mac-config" "glakos";
+      "mac-config" = mkDarwinConfiguration "mac-config" "glakos" false;
     };
 
     # homeConfigurations = {
