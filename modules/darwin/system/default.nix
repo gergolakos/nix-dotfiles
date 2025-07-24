@@ -1,5 +1,12 @@
-{ pkgs, inputs, userConfig, ... }:
+{ pkgs, userConfig, ... }:
+
 {
+  # Import submodules
+  imports = [
+    ./core.nix
+    ./dock.nix
+  ];
+
   # Auto upgrade nix package and the daemon service.
   nix = {
     enable = true;
@@ -9,6 +16,11 @@
         "flakes"
       ];
       auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      interval = { Weekday = 0; Hour = 2; Minute = 0; };
+      options = "--delete-older-than 10d";
     };
     package = pkgs.lixPackageSets.latest.lix;
   };
@@ -20,21 +32,7 @@
   system = {
     primaryUser = "${userConfig.name}";
     stateVersion = 4;
-    defaults = {
-      # Log out and back in to apply the defaults.
-      NSGlobalDomain = {
-        AppleShowAllExtensions = true;
-        KeyRepeat = 2; # Options: 120, 90, 60, 30, 12, 6, 2 (Fastest: 2)
-        InitialKeyRepeat = 15; # (Fastest: 15)
-      };
-      dock = {
-        autohide = true;
-        show-recents = false;
-        launchanim = true;
-        mouse-over-hilite-stack = false;
-        orientation = "bottom";
-        tilesize = 20;
-      };
-    };
+    defaults = {};
   };
 }
+
