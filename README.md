@@ -26,4 +26,50 @@
 
 Ideas were inspired by: https://github.com/AlexNabokikh/nix-config
 
-cat /run/current-system/sw/bin/bash
+## Nix Darwin
+
+3 commands to rule them all:
+
+```bash
+# intall nix
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
+# download my nix dotfiles (public config)
+nix-shell -p git --run 'git clone https://github.com/glakos/nix-dotfiles.git .dotfiles'
+# install it
+nix run nix-darwin --extra-experimental-features 'nix-commands flakes' -- switch --flake ~/nix-dotfiles/nix/darwin#gelakos
+```
+
+Run flakes:
+
+```bash
+sudo nix run nix darwin -- switch --flake .#mac-config
+sudo nix run home-manager -- switch --flake .#m1-air-personal@glakos
+
+# Cleanup
+nix store gc
+
+# Search packages
+nix search nixpkgs ghostty
+nix-env -qaP ghostty
+
+# Update flake
+sudo nix flake update
+```
+
+## Flake init in projects
+
+```bash
+nix flake init
+vim flake.nix
+nix develop
+```
+
+## Good to know
+
+- programs.homebrew support is depracated, nix wants to force nix package usage
+
+## Links
+
+- https://www.nixhub.io/
+- https://search.nixos.org/packages
+- https://rycee.gitlab.io/home-manager/options.xhtml#opt-home.activation
