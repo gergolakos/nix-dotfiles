@@ -23,6 +23,7 @@
       fullscreen = true;
       macos-non-native-fullscreen = "visible-menu";
       confirm-close-surface = false;
+      mouse-hide-while-typing = true;
 
       window-padding-x = 5;
       window-padding-y = 5;
