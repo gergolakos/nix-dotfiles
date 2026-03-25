@@ -24,6 +24,6 @@ repos:
     hooks:
       - id: nixfmt
         name: nixfmt
-        entry: nixfmt
+        entry: nix run nixpkgs#nixfmt
         language: system
         files: \.nix$
