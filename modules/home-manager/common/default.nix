@@ -7,7 +7,8 @@
 }:
 {
   imports = [
-     ../programs/ghostty
+    ../programs/ghostty
+    ../programs/tmux
   ];
 
   # Nixpkgs configuration
@@ -36,6 +37,7 @@
     with pkgs;
     [
       ghostty-bin # install Ghostty prebuilt binary to ~/Application/Home\ Manager\ Apps/
+      nixfmt
       # yq
     ]
     ++ lib.optionals isCorporate [
@@ -43,6 +45,5 @@
     ]
     ++ lib.optionals (!isCorporate) [
     ];
-
 
 }
