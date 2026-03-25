@@ -27,6 +27,7 @@
       brews = [
         # Common CLI tools
         "neovim"
+        "git"
         "jq"
         "yq"
         "htop"
