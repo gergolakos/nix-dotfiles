@@ -5,11 +5,10 @@
   ...
 }:
 {
-  config = lib.mkIf (pkgs.stdenv.isDarwin) {
-    # Ensure aerospace package installed
-    home.packages = [ pkgs.aerospace ];
+  programs.aerospace = {
+    enabled = false;
+  };
 
-    # Map dotfile
-    home.file.".config/aerospace.toml".source = "${dotFiles}/aerospace/aerospace.toml";
-  }
+  # Map dotfile
+  home.file.".config/aerospace.toml".source = "${dotFiles}/aerospace/aerospace.toml";
 }
