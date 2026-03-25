@@ -98,6 +98,14 @@
         # "1password"
       ];
 
+      # New Brewfile entry types were added: `homebrew.goPackages`,
+      # `homebrew.cargoPackages`, and `homebrew.vscode`
+      goPackages = [ ];
+      vscode = [
+        # "asvetliakov.vscode-neovim"
+        # "pkief.material-icon-theme"
+      ];
+
       # masApps = lib.mkMerge [
       #   {
       #     # Common Mac App Store apps
