@@ -5,6 +5,7 @@
   imports = [
     ./core.nix
     ./dock.nix
+    ./homebrew.nix
   ];
 
   # Auto upgrade nix package and the daemon service.

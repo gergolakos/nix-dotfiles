@@ -42,8 +42,8 @@ nix run nix-darwin --extra-experimental-features 'nix-commands flakes' -- switch
 Run flakes:
 
 ```bash
-sudo nix run nix darwin -- switch --flake .#mac-config
-sudo nix run home-manager -- switch --flake .#m1-air-personal@glakos
+sudo nix run-nix darwin -- switch --flake .#mac-config
+nix run home-manager -- switch --flake .#m1-air-personal@glakos
 
 # Cleanup
 nix store gc
@@ -54,6 +54,10 @@ nix-env -qaP ghostty
 
 # Update flake
 sudo nix flake update
+
+# Rollback
+sudo darwin-rebuild --list-generations
+sudo darwin-rebuild switch --rollback
 ```
 
 ## Flake init in projects
@@ -66,7 +70,31 @@ nix develop
 
 ## Good to know
 
-- programs.homebrew support is depracated, nix wants to force nix package usage
+- note that nix-darwin supports Homebrew, but programs.homebrew is deprecated as nix encourages using nix packages instead
+
+## Starting Home Manager activation Issue
+
+Error message
+
+```
+Starting Home Manager activation
+Activating checkAppManagementPermission
+error: permission denied when trying to update apps over SSH, aborting activation
+Apps could not be updated as home-manager requires Full Disk Access to work over SSH.
+You can either:
+
+  grant Full Disk Access to all programs run over SSH
+
+or
+
+  run home-manager in a graphical session.
+
+The option "Allow full disk access for remote users" can be found by
+navigating to System Settings > General > Sharing > Remote Login
+and then pressing on the i icon next to the switch.
+```
+
+Manually deleting `~/Application/Home Manager Apps` resolved the issue.
 
 ## Links
 
