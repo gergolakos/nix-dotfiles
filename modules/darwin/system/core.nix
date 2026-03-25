@@ -6,5 +6,7 @@
     AppleShowAllExtensions = true;
     KeyRepeat = 2; # Options: 120, 90, 60, 30, 12, 6, 2 (Fastest: 2)
     InitialKeyRepeat = 15; # (Fastest: 15)
+    "com.apple.sound.beep.volume" = 0.0;
+    "com.apple.sound.beep.feedback" = 0;
   };
 }
