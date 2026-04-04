@@ -6,6 +6,7 @@
     ./core.nix
     ./dock.nix
     ./homebrew.nix
+    ./finder.nix
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -17,6 +18,10 @@
         "flakes"
       ];
       auto-optimise-store = true;
+      trusted-users = [
+        "root"
+        userConfig.name
+      ];
     };
     gc = {
       automatic = true;
@@ -35,6 +40,8 @@
   ids.gids.nixbld = 350;
 
   system = {
+    # Turn off NIX_PATH warnings now that we're using flakes
+    checks.verifyNixPath = false;
     primaryUser = "${userConfig.name}";
     stateVersion = 4;
     defaults = { };

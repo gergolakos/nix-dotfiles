@@ -5,11 +5,17 @@
 
 ## TODO/Backlog
 
-- [ ] Modularize the system settings
+- [x] Modularize the system settings
 - [ ] Apply all current macOS settings through Nix
-- [ ] Define company, common, and private packages
-- [ ] Set up company, common, and private macOS configurations
-- [ ] Configure company, common, and private home-manager settings
+- [x] Define company, common, and private packages
+- [x] Set up company, common, and private macOS configurations
+- [x] Configure company, common, and private home-manager settings
+
+- move ghostty install to homebrew
+- revisit git
+- move dotfiles to the new repo
+- zsh, ohmyzsh, fzf setup
+- nix-homebrew installation
 
 ## Structure
 
@@ -42,7 +48,7 @@ nix run nix-darwin --extra-experimental-features 'nix-commands flakes' -- switch
 Run flakes:
 
 ```bash
-sudo nix run-nix darwin -- switch --flake .#mac-config
+sudo nix run nix-darwin -- switch --flake .#mac-config
 nix run home-manager -- switch --flake .#m1-air-personal@glakos
 
 # Cleanup
@@ -101,3 +107,4 @@ Manually deleting `~/Application/Home Manager Apps` resolved the issue.
 - https://www.nixhub.io/
 - https://search.nixos.org/packages
 - https://rycee.gitlab.io/home-manager/options.xhtml#opt-home.activation
+- https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG

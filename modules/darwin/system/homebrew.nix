@@ -48,6 +48,11 @@
         "pre-commit"
         "fd" # Simple, fast and user-friendly alternative to find
         "gh"
+        "terraform"
+        "terragrunt"
+        "tflint"
+        "terraform-docs"
+        "tree-sitter-cli"
       ]
       ++ lib.optionals (!isCorporate) [
         # Private-only brews
@@ -80,10 +85,12 @@
         "stats"
         "rar"
         "hiddenbar"
+        # "jordanbaird-ice"
         "logi-options+"
         # "zen"
         # "vscodium"
         # "raycast"
+        "claude-code"
       ]
       ++ lib.optionals (!isCorporate) [
         # Private-only casks
