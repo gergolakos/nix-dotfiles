@@ -9,6 +9,9 @@
     enable = true;
   };
   # Map dotfile
-  home.file.".tmux.conf".source = "${dotFiles}/tmux/tmux.conf";
+  home.file.".tmux.conf" = {
+    source = "${dotFiles}/tmux/tmux.conf";
+    force = true;
+  };
 
 }

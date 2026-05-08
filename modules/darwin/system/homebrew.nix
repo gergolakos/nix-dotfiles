@@ -48,11 +48,13 @@
         "pre-commit"
         "fd" # Simple, fast and user-friendly alternative to find
         "gh"
-        "terraform"
+        # "terraform"
+        "tfenv"
         "terragrunt"
         "tflint"
         "terraform-docs"
         "tree-sitter-cli"
+        "hcledit"
       ]
       ++ lib.optionals (!isCorporate) [
         # Private-only brews
@@ -64,6 +66,8 @@
         # "openjdk"
         # "maven"
         # "gradle"
+        "hcloud"
+        "wireguard-tools"
       ]
       ++ lib.optionals isCorporate [
         # Corporate-only brews
