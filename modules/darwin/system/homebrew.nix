@@ -55,6 +55,7 @@
         "terraform-docs"
         "tree-sitter-cli"
         "hcledit"
+        "mas"
       ]
       ++ lib.optionals (!isCorporate) [
         # Private-only brews
@@ -117,16 +118,13 @@
         # "pkief.material-icon-theme"
       ];
 
-      # masApps = lib.mkMerge [
-      #   {
-      #     # Common Mac App Store apps
-      #   }
-      #   (lib.mkIf isCorporate {
-      #     # Corporate-only Mac App Store apps
-      #     "Microsoft Word" = 462054704;
-      #     "Microsoft Excel" = 462058435;
-      #   })
-      # ];
+      # masApps = {
+      #   "wireguard" = 1451685025;
+      # };
+      # masApps doesn't work reliably via brew bundle
+      # Install manually: mas install <id>
+      # You need to be signed into the Mac App Store
+
     };
   };
 }
