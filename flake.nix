@@ -17,6 +17,12 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Dotfiles submodule as separate flake input
+    dotfiles = {
+      url = "github:gergolakos/dotfiles";
+      flake = false;
+    };
   };
 
   outputs =
@@ -25,6 +31,7 @@
       nixpkgs,
       darwin,
       home-manager,
+      dotfiles,
       ...
     }@inputs:
     let
@@ -79,7 +86,7 @@
             inherit inputs outputs isCorporate;
             userConfig = users.${username};
             nhModules = "${self}/modules/home-manager";
-            dotFiles = "${self}/dotfiles";
+            dotFiles = dotfiles;
           };
           modules = [
             ./home-manager/${hostname}/${username}

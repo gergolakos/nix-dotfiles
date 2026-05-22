@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774340839,
+        "narHash": "sha256-dlNWVAijzEl/bqbBIRpHn2fVdUJdPPp5/Gg2UxeJOQY=",
+        "owner": "gergolakos",
+        "repo": "dotfiles",
+        "rev": "5bfb098e90d7da537ab66714d9072dde87d77303",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gergolakos",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -59,6 +75,7 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }
