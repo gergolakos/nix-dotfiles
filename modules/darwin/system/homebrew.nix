@@ -22,6 +22,7 @@
       taps = [
         "qmk/qmk"
         "homebrew/cask-fonts"
+        "yqrashawn/goku"
       ];
 
       brews = [
@@ -56,6 +57,7 @@
         "tree-sitter-cli"
         "hcledit"
         "mas"
+        "azure-cli"
       ]
       ++ lib.optionals (!isCorporate) [
         # Private-only brews
@@ -96,6 +98,7 @@
         # "vscodium"
         # "raycast"
         "claude-code"
+        "gcloud-cli"
       ]
       ++ lib.optionals (!isCorporate) [
         # Private-only casks
